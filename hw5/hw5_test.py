@@ -23,7 +23,7 @@ class Example_Net(nn.Module):
 			pretrained_embedding.size(1),
 			padding_idx=padding_idx)
 		# Load pretrained embedding weight
-		self.embedding.weight = torch.nn.Parameter(pretrained_embedding)
+		#self.embedding.weight = torch.nn.Parameter(pretrained_embedding)
 
 		self.rnn = nn.LSTM(
 			input_size=pretrained_embedding.size(1),

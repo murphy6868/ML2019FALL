@@ -57,7 +57,7 @@ vector_space = 25
 
 nlp = spacy.load('en_core_web_sm')
 def clean_doc(doc):
-	return doc.split(" ")
+	#return doc.split(" ")
 	doc = nlp(doc)
 	# split into tokens by white space
 	tokens = [token.lemma_ for token in doc if token.is_stop == False]
@@ -73,9 +73,9 @@ def clean_doc(doc):
 	
 	return tokens
 
-train_x = pd.read_csv("train_x.csv")
-test_x = pd.read_csv("test_x.csv")
-train_y = pd.read_csv("train_y.csv")
+train_x = pd.read_csv(sys.argv[1])
+train_y = pd.read_csv(sys.argv[2])
+test_x = pd.read_csv(sys.argv[3])
 
 train_x = train_x['comment'].values.tolist()
 test_x = test_x['comment'].values.tolist()
@@ -232,7 +232,7 @@ for epoch in range(num_epoch):
 	np.save("valid_acc_trace", valid_acc_trace)	
 torch.save(model.state_dict(), "hw5.pth")
 
-
+'''
 if use_gpu:
 	model.cuda()
 model.eval()
@@ -251,4 +251,4 @@ with torch.no_grad():
 	ans['label'] = result
 	print(ans)
 	ans.to_csv("ans.csv", index = False)
-
+'''
