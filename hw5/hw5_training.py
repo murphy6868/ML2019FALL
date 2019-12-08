@@ -8,11 +8,7 @@ import torch
 import pickle
 import torch.nn as nn
 from torch.optim import Adam
-from torchvision import transforms
 from torch.utils.data import DataLoader, Dataset
-import torchvision.models as models
-from gensim import corpora
-from gensim.test.utils import common_texts, get_tmpfile
 from gensim.models import Word2Vec
 class Example_Net(nn.Module):
 	def __init__(self, pretrained_embedding, hidden_size, n_layers, bidirectional, dropout, padding_idx):
